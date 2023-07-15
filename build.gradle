@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:8.5.42'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:8.5.42' // 톰캣 임베디드 추가
+
+    implementation 'javax.servlet:javax.servlet-api:4.0.1' // 서블릿 관련 디펜던시 추가, java를 이용해서 웹 애플리케이션을 만들겠다는 의미
+    implementation 'javax.servlet:jstl:1.2'  // 서블릿 이용 화면을 확인하는게 더 편하다. 현재는 이용을 잘 안하지만 추가
+
+    implementation 'ch.qos.logback:logback-classic:1.2.3' // 로그 관련 디펜던시 추가
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
